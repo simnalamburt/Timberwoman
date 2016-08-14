@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Help message
+read -r -d '' DOC <<'EOF'
+usage: build [--help | --release]
+
+커맨드라인에서 비주얼스튜디오 솔루션을 빌드합니다.
+
+    --help      본 도움말을 표시합니다.
+    --release   릴리즈모드로 빌드합니다.
+EOF
+
+# Parse argv
+if [ "$1" = '' ]; then
+  ARG=""
+elif [ "$1" = '--release' ]; then
+  ARG="-p:Configuration=Release"
+elif [ "$1" = '--help' ]; then
+  echo "$DOC"
+  exit 0
+else
+  echo "$DOC"
+  exit 1
+fi
+
+# Sorry for shitty absolute path
+/c/Windows/Microsoft.NET/Framework64/v4.0.30319/msbuild.exe $ARG
