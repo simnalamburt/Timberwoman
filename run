@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Help message
+read -r -d '' DOC <<'EOF'
+usage: run [--help | --release]
+
+커맨드라인에서 비주얼스튜디오 빌드 결과물을 실행합니다.
+
+    --help      본 도움말을 표시합니다.
+    --release   릴리즈모드로 빌드된 결과물을 실행합니다.
+EOF
+
+# Parse argv
+if [ "$1" = '' ]; then
+  timberbot/bin/Debug/timberbot.exe
+elif [ "$1" = '--release' ]; then
+  timberbot/bin/Release/timberbot.exe
+elif [ "$1" = '--help' ]; then
+  echo "$DOC"
+  exit 0
+else
+  echo "$DOC"
+  exit 1
+fi
