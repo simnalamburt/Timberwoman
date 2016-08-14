@@ -44,7 +44,7 @@ namespace timberbot
                 {
                     g.CopyFromScreen(new Point(bounds.Left,bounds.Top), Point.Empty, bounds.Size);
                 }
-                bitmap.Save("capture.jpg", ImageFormat.Jpeg);
+                bitmap.Save("capture.png", ImageFormat.Png);
             }
             return 0;
         }

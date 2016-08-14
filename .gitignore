@@ -1,4 +1,7 @@
 /.vs/
 
+# 실행결과 무시
+/capture.png
+
 [Bb]in/
 [Oo]bj/
